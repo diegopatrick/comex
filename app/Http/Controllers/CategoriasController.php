@@ -11,29 +11,23 @@ class CategoriasController extends Controller
     public function index()
     {
         $categorias = Categoria::all();
-        
+
         return view('categorias', compact('categorias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
-        //
+        return view('categoria_form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Categoria::create([
+            'nome' => $request->nome
+        ]);
+
+        return redirect('categorias');
     }
 
     /**

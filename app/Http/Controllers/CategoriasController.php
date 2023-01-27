@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller
@@ -9,16 +10,8 @@ class CategoriasController extends Controller
    
     public function index()
     {
-        $categorias = [
-            'CELULARES',
-            'INFORMÁTICA',
-            'MÓVEIS',
-            'AUTOMOTIVA',
-            'LIVROS',
-            'BELEZA',
-            'ESPORTE',
-            'LUXO'
-        ];
+        $categorias = Categoria::all();
+        
         return view('categorias', compact('categorias'));
     }
 
